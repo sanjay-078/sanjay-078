@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1016"><meta name="description" content="Meet NEXUS-01, an interactive engineering robot companion for Sanjay S, Forward Deployed Engineer.">
+<title>NEXUS-01 — Sanjay S | Interactive Robot Lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c1720'/%3E%3Crect x='10' y='18' width='44' height='30' rx='13' fill='%239dc4cb'/%3E%3Crect x='15' y='24' width='34' height='19' rx='8' fill='%230b2130'/%3E%3Ccircle cx='25' cy='32' r='3' fill='%233becc4'/%3E%3Ccircle cx='39' cy='32' r='3' fill='%233becc4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="topinner"><a class="brand" href="https://github.com/sanjay-078" aria-label="Sanjay S GitHub profile"><span class="brand-symbol">S<span>·</span></span> SANJAY S <span class="brand-divider">/</span> <strong>ROBOT LAB</strong></a>
+<nav class="mainnav" aria-label="Main navigation"><a class="nav-active" href="#main">NEXUS-01</a><a href="#projects">SYSTEMS</a><a href="https://sanjay-fde.vercel.app" target="_blank" rel="noopener noreferrer">PORTFOLIO ↗</a><a href="https://github.com/sanjay-078" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></nav></div></header>
+<main id="main" class="page">
+<section class="intro" aria-label="Introduction"><div class="intro-kicker"><span class="dot live"></span> LIVE INTERACTIVE EXPERIENCE <span class="intro-line"></span> SYSTEMS ENGINEERING, VISUALIZED</div><div class="intro-row"><div><h1>Meet your <em>AI co-pilot.</em></h1><p>I'm NEXUS-01, a playful interface to Sanjay's serious engineering work. Give me a command, explore a system, or just say hello.</p></div><div class="intro-side"><span>BUILD / 001</span><strong>HUMAN-LED<br>AI ENGINEERING</strong></div></div></section>
+<section class="workspace" aria-label="Interactive NEXUS robot interface">
+<div class="stage-area"><div class="stage-head"><span class="mono">01 / ROBOT INTERFACE</span><span class="stage-status"><span class="dot live"></span><span id="live-state">SYSTEM ONLINE</span></span></div><div class="robot-view" id="robot-view"><div class="robot-viewport" id="robot-viewport"><svg xmlns="http://www.w3.org/2000/svg" id="nexus-art" width="1200" height="448" viewBox="0 0 1200 448" role="img" aria-labelledby="tt dd">
+<title id="tt">Sanjay S — NEXUS animated AI companion</title>
+<desc id="dd">Original animated robot blinks, floats, waves, and scans a futuristic engineering interface. Sanjay S, Forward Deployed Engineer.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0A0E15"/><stop offset=".63" stop-color="#111B25"/><stop offset="1" stop-color="#081218"/></linearGradient>
+ <radialGradient id="aura"><stop stop-color="#16E3CD" stop-opacity=".20"/><stop offset=".55" stop-color="#087B88" stop-opacity=".07"/><stop offset="1" stop-color="#0B1620" stop-opacity="0"/></radialGradient>
+ <linearGradient id="shell" x1=".1" x2=".95" y1=".1" y2=".95"><stop stop-color="#EFFCFB"/><stop offset=".43" stop-color="#90AAB8"/><stop offset=".82" stop-color="#344B60"/><stop offset="1" stop-color="#172B3D"/></linearGradient>
+ <linearGradient id="visor" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#12293A"/><stop offset=".7" stop-color="#020A15"/><stop offset="1" stop-color="#173B4A"/></linearGradient>
+ <linearGradient id="aqua" x1="0" x2="1"><stop stop-color="#24E5BB"/><stop offset="1" stop-color="#A6FEE3"/></linearGradient>
+ <filter id="aquaGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4"/></filter>
+ <filter id="blur"><feGaussianBlur stdDeviation="16"/></filter>
+ <pattern id="dots" width="23" height="23" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#3AA8A6" opacity=".16"/></pattern>
+ <clipPath id="window"><rect x="8" y="8" width="1184" height="432" rx="22"/></clipPath>
+</defs>
+<style>
+@keyframes bob {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes blink {0%,44%,48%,96%,100%{transform:scaleY(1)}46%,98%{transform:scaleY(.07)}}
+@keyframes arm {0%,15%,100%{transform:rotate(0)}24%,38%{transform:rotate(-24deg)}30%,46%{transform:rotate(8deg)}54%{transform:rotate(-12deg)}}
+@keyframes pulse {0%,100%{opacity:.35;transform:scale(.97)}50%{opacity:.75;transform:scale(1.04)}}
+@keyframes blinkLED{0%,100%{opacity:.3}48%{opacity:1}}
+@keyframes scan {0%{transform:translateY(-19px);opacity:0}15%{opacity:.85}75%{opacity:.8}100%{transform:translateY(84px);opacity:0}}
+@keyframes dash {to{stroke-dashoffset:-40}}
+@keyframes drift {0%,100%{transform:translate(0,0)}50%{transform:translate(0,-7px)}}
+@keyframes rise {from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.robot-bob{animation:bob 5s ease-in-out infinite;transform-origin:850px 230px}
+.eye{animation:blink 6.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hand{animation:arm 5.4s ease-in-out infinite;transform-box:fill-box;transform-origin:15% 12%}
+.scanline{animation:scan 4.5s linear infinite}
+.ring{animation:pulse 4.7s ease-in-out infinite;transform-origin:850px 220px}
+.wire{stroke-dasharray:8 11;animation:dash 3s linear infinite}
+.float{animation:drift 3.6s ease-in-out infinite}
+.led{animation:blinkLED 2.3s ease-in-out infinite}
+.title{animation:rise 1.1s ease-out both}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<g clip-path="url(#window)">
+ <rect width="1200" height="448" rx="22" fill="url(#bg)"/>
+ <rect width="1200" height="448" fill="url(#dots)"/>
+ <ellipse cx="868" cy="208" rx="280" ry="227" fill="url(#aura)"/>
+ <path d="M0 371H1200" stroke="#1E3D48" stroke-opacity=".75"/><path d="M0 385H1200" stroke="#182F3A" stroke-opacity=".5"/>
+ <path d="M35 39h1130M35 407h1130" stroke="#4D7882" opacity=".22"/>
+ <path d="M35 39v24 M1165 39v24 M35 407v-24 M1165 407v-24" stroke="#72B7B5" opacity=".5"/>
+ <text x="58" y="66" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" letter-spacing="3.5" fill="#60CEC2">SANJAY S / SYSTEMS ENGINEER</text>
+ <text x="58" y="145" class="title" font-family="system-ui,Segoe UI,Arial,sans-serif" font-weight="750" font-size="67" letter-spacing="-3" fill="#F4FBFB">Hello, I'm Sanjay.</text>
+ <text x="60" y="193" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="22" font-weight="450" fill="#CBD7DD">I engineer systems that think and act.</text>
+ <rect x="60" y="225" width="440" height="1" fill="#3D6670" opacity=".75"/>
+ <g font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="16" fill="#9BB4BF">
+  <text x="60" y="260">FORWARD DEPLOYED ENGINEER</text>
+  <text x="60" y="286">GENERATIVE AI · AUTOMATION · FULL STACK</text>
+ </g>
+ <rect x="60" y="319" width="224" height="47" rx="11" fill="#2DD7B4"/>
+ <text x="82" y="349" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#071B22">MEET NEXUS-01  ↗</text>
+ <text x="61" y="396" font-family="monospace" font-size="12" letter-spacing="1.1" fill="#7EA4A9">04 SYSTEMS ONLINE  //  EXPLORE MY WORK</text>
+ <!-- telemetry behind -->
+ <g fill="none" stroke="#55B0B2" opacity=".32"><circle cx="852" cy="219" r="167" class="ring"/><circle cx="852" cy="219" r="133" stroke-dasharray="5 12"/><circle cx="852" cy="219" r="195" stroke-dasharray="1 17"/></g>
+ <g fill="none" stroke="#34BBA6" opacity=".52" stroke-width="1.3" class="wire"><path d="M690 119L635 89H588"/><path d="M977 145L1049 115H1120"/><path d="M690 331L621 359H568"/><path d="M1008 321L1084 357H1150"/></g>
+ <g class="robot-bob">
+   <ellipse cx="852" cy="373" rx="109" ry="19" fill="#21D5BD" opacity=".14" filter="url(#blur)"/>
+   <!-- neck and torso -->
+   <rect x="825" y="257" width="55" height="51" rx="15" fill="#708A9C" stroke="#B8CAD4" stroke-opacity=".7" stroke-width="3"/>
+   <path d="M772 295Q758 299 744 321L725 371Q719 393 742 395H957Q980 395 973 372L954 322Q940 300 922 295Z" fill="url(#shell)" stroke="#9BB7C6" stroke-width="3"/>
+   <path d="M783 323H917L939 387H761Z" fill="#162C3C"/>
+   <path d="M816 326H885L898 355L851 378L802 355Z" fill="#24465A" stroke="#4A7582"/>
+   <circle cx="852" cy="347" r="20" fill="#1C4047" stroke="#4EE8D0" stroke-width="2"/><circle cx="852" cy="347" r="10" fill="#49E9CF" opacity=".8" class="led"/>
+   <circle cx="852" cy="347" r="25" fill="#35E8C4" opacity=".19" filter="url(#aquaGlow)"/>
+   <!-- arms -->
+   <g><path d="M760 308Q729 302 710 332L693 363" fill="none" stroke="#506D80" stroke-width="27" stroke-linecap="round"/><path d="M760 308Q729 302 710 332L693 363" fill="none" stroke="#BBD1D8" stroke-width="13" stroke-linecap="round"/><ellipse cx="692" cy="363" rx="17" ry="14" fill="#C3DADE"/></g>
+   <g class="hand"><path d="M946 307Q976 302 1000 270L1010 248" fill="none" stroke="#58798A" stroke-width="28" stroke-linecap="round"/><path d="M946 307Q976 302 1000 270L1010 248" fill="none" stroke="#D3E4E5" stroke-width="14" stroke-linecap="round"/>
+    <rect x="997" y="211" width="35" height="42" rx="13" fill="#ADCBD4" stroke="#F1FBF5" stroke-width="3"/><path d="M1001 225L987 209M1010 214V197M1018 214L1026 199M1027 229L1038 219" stroke="#D7EDE9" stroke-width="9" stroke-linecap="round"/>
+   </g>
+   <!-- head floating -->
+   <rect x="750" y="112" width="202" height="173" rx="58" fill="url(#shell)" stroke="#C3D6D8" stroke-width="4"/>
+   <path d="M779 129H922Q941 129 941 154V227Q941 251 913 260H790Q762 250 762 227V154Q762 129 779 129Z" fill="url(#visor)" stroke="#7CA6AD" stroke-width="2.5"/>
+   <path d="M783 145Q849 125 924 148" fill="none" stroke="#72C3BF" opacity=".5" stroke-width="3"/>
+   <g class="eye" fill="#62F3D3">
+    <rect x="797" y="184" width="36" height="15" rx="8"/><rect x="870" y="184" width="36" height="15" rx="8"/>
+   </g>
+   <g fill="#4BF7D2" opacity=".28" filter="url(#aquaGlow)"><ellipse cx="815" cy="192" rx="22" ry="11"/><ellipse cx="888" cy="192" rx="22" ry="11"/></g>
+   <path d="M831 222Q850 238 872 222" fill="none" stroke="#6AEED9" stroke-width="4" stroke-linecap="round"/>
+   <path class="scanline" d="M784 172H922" fill="none" stroke="#62F7D8" stroke-opacity=".37" stroke-width="4"/>
+   <path d="M852 113V99" stroke="#9FD2D1" stroke-width="6" stroke-linecap="round"/><circle cx="852" cy="94" r="8" fill="#74F9D8" class="led"/>
+   <rect x="735" y="183" width="16" height="31" rx="8" fill="#4C7B8B"/><rect x="951" y="183" width="16" height="31" rx="8" fill="#4C7B8B"/>
+ </g>
+ <!-- floating readouts -->
+ <g class="float" font-family="monospace" font-size="12" fill="#92DFD5">
+  <rect x="1063" y="151" width="98" height="56" rx="8" fill="#142B36" stroke="#417A85"/><text x="1074" y="173">VISION</text><text x="1074" y="192" fill="#D9FCF5">ACTIVE ●</text>
+ </g>
+ <g font-family="monospace" font-size="12" fill="#8ACDCB"><text x="1080" y="312">NEXUS-01</text><path d="M1063 320H1167" stroke="#3F7980"/><text x="1080" y="341" fill="#5DF2CC">ONLINE</text></g>
+</g>
+<rect x="4" y="4" width="1192" height="440" rx="22" fill="none" stroke="#31525B" stroke-width="1"/>
+</svg></div><div class="stage-bottom"><div class="telemetry"><span>UNIT: NEXUS-01</span><span>MODE: <b id="stage-mode">READY</b></span></div><span class="hint">MOVE YOUR CURSOR OVER THE ROBOT</span></div></div></div>
+<aside class="controls" aria-label="Robot controls"><div class="pane-header"><span class="mono">02 / MOTION CONTROLS</span><span class="panel-index">↗</span></div><h2>Control NEXUS.</h2><p class="pane-desc">Choose a behavior. Watch the robot respond. Every control changes a real animation state.</p><div class="mode-list" role="group" aria-label="Choose robot action">
+<button class="mode-btn active" type="button" data-mode="ready" aria-pressed="true"><span class="mode-icon">◉</span><span class="mode-title">Stand by <small>Default · idle animation</small></span><span class="mode-shortcut">1</span></button>
+<button class="mode-btn" type="button" data-mode="wave" aria-pressed="false"><span class="mode-icon">↝</span><span class="mode-title">Wave hello <small>Animated welcome gesture</small></span><span class="mode-shortcut">2</span></button>
+<button class="mode-btn" type="button" data-mode="scan" aria-pressed="false"><span class="mode-icon">⌕</span><span class="mode-title">Scan systems <small>Activate visual telemetry</small></span><span class="mode-shortcut">3</span></button>
+<button class="mode-btn" type="button" data-mode="think" aria-pressed="false"><span class="mode-icon">✦</span><span class="mode-title">Thinking <small>Run synthetic inference demo</small></span><span class="mode-shortcut">4</span></button>
+<button class="mode-btn" type="button" data-mode="sleep" aria-pressed="false"><span class="mode-icon">☾</span><span class="mode-title">Power save <small>Dim display and motion</small></span><span class="mode-shortcut">5</span></button>
+</div><div class="status-panel"><span class="mono">TELEMETRY</span><div class="status-line"><span>MODEL</span><strong>NX-01 / VECTOR</strong></div><div class="status-line"><span>INPUT</span><strong>MOUSE · TOUCH · KEYS</strong></div><div class="status-line"><span>STATE</span><strong id="status-value">IDLE / STABLE</strong></div><div class="energy"><div id="energy-bar"></div></div><span class="energy-label">SIMULATED ENERGY / <span id="energy-value">98%</span></span></div></aside></section>
+<section class="command-section" aria-labelledby="console-heading"><div class="section-heading"><span class="eyebrow">03 / CONVERSATION ENGINE</span><h2 id="console-heading">Talk to the system.</h2><p>No hidden API. This is a transparent, deterministic interactive demo—try a command and watch the interface react.</p></div>
+<div class="console-wrap"><div class="terminal"><div class="terminal-top"><div><span class="terminal-lamp"></span> NEXUS / COMMAND INTERFACE</div><span>LOCAL DEMO ENGINE v1.0</span></div><div id="log" class="log" role="log" aria-live="polite" aria-relevant="additions"><div class="line assistant"><span class="prefix">NX</span><span>Hello, Sanjay's visitor. Want to explore a project, inspect my system state, or learn how I work? Try <code>/help</code>.</span></div></div><form id="console-form" class="command-form"><label class="visually-hidden" for="command">Send a demo command to NEXUS</label><span class="prompt-caret">›</span><input id="command" maxlength="180" autocomplete="off" placeholder="Type /help, /projects, /stack or a question"/><button type="submit" aria-label="Send command">SEND ↗</button></form></div>
+<div class="quick-commands"><span>QUICK COMMANDS</span><div><button type="button" data-command="/help">/help</button><button type="button" data-command="/projects">/projects</button><button type="button" data-command="/stack">/stack</button><button type="button" data-command="Who is Sanjay?">whoami</button></div><p>This is a scripted UI demonstration, not a live conversational AI service.</p></div></div></section>
+<section class="projects" id="projects" aria-labelledby="projects-heading"><div class="section-heading"><span class="eyebrow">04 / MISSION CONTROL</span><h2 id="projects-heading">Four systems.<br><em>Built for real work.</em></h2><p>Select a system to reveal its architecture focus, or open the complete case study on Sanjay's portfolio.</p></div>
+<div class="project-grid">
+<article class="project-card" data-project="fireblade"><div class="project-top"><span class="project-no">01 / FIELD SYSTEMS</span><span class="project-icon">↗</span></div><h3>FIREBLADE</h3><p>Mobile-to-web call intelligence with 20 employee phones used in daily business workflows.</p><div class="project-foot"><button type="button" data-explore="fireblade" aria-label="Inspect FIREBLADE">INSPECT SYSTEM</button><a href="https://sanjay-fde.vercel.app/work/fireblade" target="_blank" rel="noopener noreferrer">CASE STUDY ↗</a></div></article>
+<article class="project-card" data-project="hyperspeed"><div class="project-top"><span class="project-no">02 / AI AUTOMATION</span><span class="project-icon">✧</span></div><h3>HYPERSPEED</h3><p>Supplier email processing: approximately 200K emails and 70K extracted product records.</p><div class="project-foot"><button type="button" data-explore="hyperspeed" aria-label="Inspect HYPERSPEED">INSPECT SYSTEM</button><a href="https://sanjay-fde.vercel.app/work/hyperspeed" target="_blank" rel="noopener noreferrer">CASE STUDY ↗</a></div></article>
+<article class="project-card" data-project="stratos"><div class="project-top"><span class="project-no">03 / GENERATIVE AI</span><span class="project-icon">◎</span></div><h3>STRATOS</h3><p>Source-grounded AI assistant, designed around a catalogue of 69,070 products.</p><div class="project-foot"><button type="button" data-explore="stratos" aria-label="Inspect STRATOS">INSPECT SYSTEM</button><a href="https://sanjay-fde.vercel.app/work/stratos" target="_blank" rel="noopener noreferrer">CASE STUDY ↗</a></div></article>
+<article class="project-card" data-project="decibel"><div class="project-top"><span class="project-no">04 / OPERATIONS</span><span class="project-icon">⌘</span></div><h3>DECIBEL</h3><p>Three-department CRM with 19 documented passing end-to-end tests.</p><div class="project-foot"><button type="button" data-explore="decibel" aria-label="Inspect DECIBEL">INSPECT SYSTEM</button><a href="https://sanjay-fde.vercel.app/work/decibel" target="_blank" rel="noopener noreferrer">CASE STUDY ↗</a></div></article>
+</div><div id="project-detail" class="project-detail" aria-live="polite" hidden><div><span class="eyebrow">ARCHITECTURE BRIEF</span><h3 id="detail-name"></h3><p id="detail-text"></p></div><div class="detail-actions"><a id="detail-link" target="_blank" rel="noopener noreferrer">OPEN CASE STUDY ↗</a><button type="button" id="close-detail">CLOSE ×</button></div></div></section>
+<footer class="footer"><div><strong>SANJAY S<span class="aqua">.</span></strong><p>Forward Deployed Engineer · Generative AI Engineer</p></div><div class="footer-links"><a href="https://sanjay-fde.vercel.app" target="_blank" rel="noopener noreferrer">PORTFOLIO ↗</a><a href="https://github.com/sanjay-078" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="https://www.linkedin.com/in/sanxay/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a><a href="mailto:sksubbusanjayai@gmail.com">EMAIL ↗</a></div><span class="footer-note">NEXUS-01 © 2026 / ORIGINAL INTERACTIVE CONCEPT · SYNTHETIC DEMOS</span></footer>
+</main>
+<script src="./app.js" defer></script></body></html>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="448" viewBox="0 0 1200 448" role="img" aria-labelledby="tt dd">
+<title id="tt">Sanjay S — NEXUS animated AI companion</title>
+<desc id="dd">Original animated robot blinks, floats, waves, and scans a futuristic engineering interface. Sanjay S, Forward Deployed Engineer.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0A0E15"/><stop offset=".63" stop-color="#111B25"/><stop offset="1" stop-color="#081218"/></linearGradient>
+ <radialGradient id="aura"><stop stop-color="#16E3CD" stop-opacity=".20"/><stop offset=".55" stop-color="#087B88" stop-opacity=".07"/><stop offset="1" stop-color="#0B1620" stop-opacity="0"/></radialGradient>
+ <linearGradient id="shell" x1=".1" x2=".95" y1=".1" y2=".95"><stop stop-color="#EFFCFB"/><stop offset=".43" stop-color="#90AAB8"/><stop offset=".82" stop-color="#344B60"/><stop offset="1" stop-color="#172B3D"/></linearGradient>
+ <linearGradient id="visor" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#12293A"/><stop offset=".7" stop-color="#020A15"/><stop offset="1" stop-color="#173B4A"/></linearGradient>
+ <linearGradient id="aqua" x1="0" x2="1"><stop stop-color="#24E5BB"/><stop offset="1" stop-color="#A6FEE3"/></linearGradient>
+ <filter id="aquaGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4"/></filter>
+ <filter id="blur"><feGaussianBlur stdDeviation="16"/></filter>
+ <pattern id="dots" width="23" height="23" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#3AA8A6" opacity=".16"/></pattern>
+ <clipPath id="window"><rect x="8" y="8" width="1184" height="432" rx="22"/></clipPath>
+</defs>
+<style>
+@keyframes bob {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes blink {0%,44%,48%,96%,100%{transform:scaleY(1)}46%,98%{transform:scaleY(.07)}}
+@keyframes arm {0%,15%,100%{transform:rotate(0)}24%,38%{transform:rotate(-24deg)}30%,46%{transform:rotate(8deg)}54%{transform:rotate(-12deg)}}
+@keyframes pulse {0%,100%{opacity:.35;transform:scale(.97)}50%{opacity:.75;transform:scale(1.04)}}
+@keyframes blinkLED{0%,100%{opacity:.3}48%{opacity:1}}
+@keyframes scan {0%{transform:translateY(-19px);opacity:0}15%{opacity:.85}75%{opacity:.8}100%{transform:translateY(84px);opacity:0}}
+@keyframes dash {to{stroke-dashoffset:-40}}
+@keyframes drift {0%,100%{transform:translate(0,0)}50%{transform:translate(0,-7px)}}
+@keyframes rise {from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.robot-bob{animation:bob 5s ease-in-out infinite;transform-origin:850px 230px}
+.eye{animation:blink 6.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hand{animation:arm 5.4s ease-in-out infinite;transform-box:fill-box;transform-origin:15% 12%}
+.scanline{animation:scan 4.5s linear infinite}
+.ring{animation:pulse 4.7s ease-in-out infinite;transform-origin:850px 220px}
+.wire{stroke-dasharray:8 11;animation:dash 3s linear infinite}
+.float{animation:drift 3.6s ease-in-out infinite}
+.led{animation:blinkLED 2.3s ease-in-out infinite}
+.title{animation:rise 1.1s ease-out both}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<g clip-path="url(#window)">
+ <rect width="1200" height="448" rx="22" fill="url(#bg)"/>
+ <rect width="1200" height="448" fill="url(#dots)"/>
+ <ellipse cx="868" cy="208" rx="280" ry="227" fill="url(#aura)"/>
+ <path d="M0 371H1200" stroke="#1E3D48" stroke-opacity=".75"/><path d="M0 385H1200" stroke="#182F3A" stroke-opacity=".5"/>
+ <path d="M35 39h1130M35 407h1130" stroke="#4D7882" opacity=".22"/>
+ <path d="M35 39v24 M1165 39v24 M35 407v-24 M1165 407v-24" stroke="#72B7B5" opacity=".5"/>
+ <text x="58" y="66" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" letter-spacing="3.5" fill="#60CEC2">SANJAY S / SYSTEMS ENGINEER</text>
+ <text x="58" y="145" class="title" font-family="system-ui,Segoe UI,Arial,sans-serif" font-weight="750" font-size="67" letter-spacing="-3" fill="#F4FBFB">Hello, I'm Sanjay.</text>
+ <text x="60" y="193" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="22" font-weight="450" fill="#CBD7DD">I engineer systems that think and act.</text>
+ <rect x="60" y="225" width="440" height="1" fill="#3D6670" opacity=".75"/>
+ <g font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="16" fill="#9BB4BF">
+  <text x="60" y="260">FORWARD DEPLOYED ENGINEER</text>
+  <text x="60" y="286">GENERATIVE AI · AUTOMATION · FULL STACK</text>
+ </g>
+ <rect x="60" y="319" width="224" height="47" rx="11" fill="#2DD7B4"/>
+ <text x="82" y="349" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#071B22">MEET NEXUS-01  ↗</text>
+ <text x="61" y="396" font-family="monospace" font-size="12" letter-spacing="1.1" fill="#7EA4A9">04 SYSTEMS ONLINE  //  EXPLORE MY WORK</text>
+ <!-- telemetry behind -->
+ <g fill="none" stroke="#55B0B2" opacity=".32"><circle cx="852" cy="219" r="167" class="ring"/><circle cx="852" cy="219" r="133" stroke-dasharray="5 12"/><circle cx="852" cy="219" r="195" stroke-dasharray="1 17"/></g>
+ <g fill="none" stroke="#34BBA6" opacity=".52" stroke-width="1.3" class="wire"><path d="M690 119L635 89H588"/><path d="M977 145L1049 115H1120"/><path d="M690 331L621 359H568"/><path d="M1008 321L1084 357H1150"/></g>
+ <g class="robot-bob">
+   <ellipse cx="852" cy="373" rx="109" ry="19" fill="#21D5BD" opacity=".14" filter="url(#blur)"/>
+   <!-- neck and torso -->
+   <rect x="825" y="257" width="55" height="51" rx="15" fill="#708A9C" stroke="#B8CAD4" stroke-opacity=".7" stroke-width="3"/>
+   <path d="M772 295Q758 299 744 321L725 371Q719 393 742 395H957Q980 395 973 372L954 322Q940 300 922 295Z" fill="url(#shell)" stroke="#9BB7C6" stroke-width="3"/>
+   <path d="M783 323H917L939 387H761Z" fill="#162C3C"/>
+   <path d="M816 326H885L898 355L851 378L802 355Z" fill="#24465A" stroke="#4A7582"/>
+   <circle cx="852" cy="347" r="20" fill="#1C4047" stroke="#4EE8D0" stroke-width="2"/><circle cx="852" cy="347" r="10" fill="#49E9CF" opacity=".8" class="led"/>
+   <circle cx="852" cy="347" r="25" fill="#35E8C4" opacity=".19" filter="url(#aquaGlow)"/>
+   <!-- arms -->
+   <g><path d="M760 308Q729 302 710 332L693 363" fill="none" stroke="#506D80" stroke-width="27" stroke-linecap="round"/><path d="M760 308Q729 302 710 332L693 363" fill="none" stroke="#BBD1D8" stroke-width="13" stroke-linecap="round"/><ellipse cx="692" cy="363" rx="17" ry="14" fill="#C3DADE"/></g>
+   <g class="hand"><path d="M946 307Q976 302 1000 270L1010 248" fill="none" stroke="#58798A" stroke-width="28" stroke-linecap="round"/><path d="M946 307Q976 302 1000 270L1010 248" fill="none" stroke="#D3E4E5" stroke-width="14" stroke-linecap="round"/>
+    <rect x="997" y="211" width="35" height="42" rx="13" fill="#ADCBD4" stroke="#F1FBF5" stroke-width="3"/><path d="M1001 225L987 209M1010 214V197M1018 214L1026 199M1027 229L1038 219" stroke="#D7EDE9" stroke-width="9" stroke-linecap="round"/>
+   </g>
+   <!-- head floating -->
+   <rect x="750" y="112" width="202" height="173" rx="58" fill="url(#shell)" stroke="#C3D6D8" stroke-width="4"/>
+   <path d="M779 129H922Q941 129 941 154V227Q941 251 913 260H790Q762 250 762 227V154Q762 129 779 129Z" fill="url(#visor)" stroke="#7CA6AD" stroke-width="2.5"/>
+   <path d="M783 145Q849 125 924 148" fill="none" stroke="#72C3BF" opacity=".5" stroke-width="3"/>
+   <g class="eye" fill="#62F3D3">
+    <rect x="797" y="184" width="36" height="15" rx="8"/><rect x="870" y="184" width="36" height="15" rx="8"/>
+   </g>
+   <g fill="#4BF7D2" opacity=".28" filter="url(#aquaGlow)"><ellipse cx="815" cy="192" rx="22" ry="11"/><ellipse cx="888" cy="192" rx="22" ry="11"/></g>
+   <path d="M831 222Q850 238 872 222" fill="none" stroke="#6AEED9" stroke-width="4" stroke-linecap="round"/>
+   <path class="scanline" d="M784 172H922" fill="none" stroke="#62F7D8" stroke-opacity=".37" stroke-width="4"/>
+   <path d="M852 113V99" stroke="#9FD2D1" stroke-width="6" stroke-linecap="round"/><circle cx="852" cy="94" r="8" fill="#74F9D8" class="led"/>
+   <rect x="735" y="183" width="16" height="31" rx="8" fill="#4C7B8B"/><rect x="951" y="183" width="16" height="31" rx="8" fill="#4C7B8B"/>
+ </g>
+ <!-- floating readouts -->
+ <g class="float" font-family="monospace" font-size="12" fill="#92DFD5">
+  <rect x="1063" y="151" width="98" height="56" rx="8" fill="#142B36" stroke="#417A85"/><text x="1074" y="173">VISION</text><text x="1074" y="192" fill="#D9FCF5">ACTIVE ●</text>
+ </g>
+ <g font-family="monospace" font-size="12" fill="#8ACDCB"><text x="1080" y="312">NEXUS-01</text><path d="M1063 320H1167" stroke="#3F7980"/><text x="1080" y="341" fill="#5DF2CC">ONLINE</text></g>
+</g>
+<rect x="4" y="4" width="1192" height="440" rx="22" fill="none" stroke="#31525B" stroke-width="1"/>
+</svg>
