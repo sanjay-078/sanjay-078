@@ -1,0 +1,224 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="920" height="280" viewBox="0 0 920 280" role="img" aria-labelledby="hs-dark-t hs-dark-d">
+  <title id="hs-dark-t">HYPERSPEED — High-Throughput Extraction Pipeline Architecture</title>
+  <desc id="hs-dark-d">Automated email ingestion, OCR parsing, and LLM structured extraction across 200,000 emails and 70,000 catalog items.</desc>
+  <defs>
+    <!-- Dark Canvas Background Gradients -->
+    <linearGradient id="hs-bg-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080814"/>
+      <stop offset="60%" stop-color="#0F1123"/>
+      <stop offset="100%" stop-color="#06060F"/>
+    </linearGradient>
+
+    <linearGradient id="hs-card-dark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14172E" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0E1022" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <linearGradient id="hs-stream-dark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="50%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+
+    <filter id="hs-glow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <pattern id="hs-grid-dark" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1E1B4B" stroke-width="0.6" stroke-opacity="0.4"/>
+    </pattern>
+
+    <clipPath id="hs-clip-dark">
+      <rect x="0" y="0" width="920" height="280" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes hsPacketRun { 0% { stroke-dashoffset: 40; } 100% { stroke-dashoffset: 0; } }
+    @keyframes hsLaserBar { 0% { transform: translateY(0); opacity: 0.2; } 50% { opacity: 0.95; } 100% { transform: translateY(40px); opacity: 0.2; } }
+    @keyframes hsPulseLamp { 0%, 100% { fill: #818CF8; } 50% { fill: #C084FC; } }
+
+    .hs-wire { stroke-dasharray: 6 12; animation: hsPacketRun 1.5s linear infinite; }
+    .hs-laser { animation: hsLaserBar 2.2s ease-in-out infinite; }
+    .hs-lamp { animation: hsPulseLamp 2.4s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, .hs-wire, .hs-laser, .hs-lamp {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+
+  <g clip-path="url(#hs-clip-dark)">
+    <!-- Canvas Fill & Grid -->
+    <rect width="920" height="280" fill="url(#hs-bg-dark)"/>
+    <rect width="920" height="280" fill="url(#hs-grid-dark)"/>
+
+    <!-- ======================================================== -->
+    <!-- HEADER BAR: TITLE, KICKER & PROMINENT VERIFIED OUTCOME   -->
+    <!-- ======================================================== -->
+    <g transform="translate(32, 24)">
+      <!-- System Tag -->
+      <rect width="180" height="22" rx="4" fill="#131430" stroke="#312E81" stroke-width="1"/>
+      <circle cx="9" cy="11" r="3" fill="#C084FC" filter="url(#hs-glow-subtle)"/>
+      <text x="18" y="15" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" letter-spacing="1" fill="#A5B4FC">SYSTEM 02 // EXTRACTION AI</text>
+
+      <!-- Project Title & Subtitle -->
+      <text x="0" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="24" font-weight="800" letter-spacing="-0.8" fill="#F8FAFC">
+        HYPERSPEED
+      </text>
+      <text x="168" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="13.5" font-weight="500" fill="#94A3B8">
+        High-Throughput Ingestion, Multi-Modal OCR &amp; Structured Extraction
+      </text>
+
+      <!-- Prominent Verified Outcome Badge -->
+      <g transform="translate(600, 0)">
+        <rect width="256" height="34" rx="6" fill="#11132C" stroke="#6366F1" stroke-width="1.2"/>
+        <text x="14" y="21" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="800" fill="#C084FC">~200K EMAILS · ~70K SKUs</text>
+        <rect x="200" y="7" width="44" height="20" rx="3" fill="#818CF8" fill-opacity="0.25"/>
+        <text x="207" y="21" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#A5B4FC">SCALE</text>
+      </g>
+    </g>
+
+    <!-- Hairline Divider -->
+    <line x1="32" y1="84" x2="888" y2="84" stroke="#1E1B4B" stroke-width="0.8"/>
+
+    <!-- ======================================================== -->
+    <!-- 4 BALANCED ARCHITECTURAL STAGES (x=32, 250, 468, 686)     -->
+    <!-- ======================================================== -->
+
+    <!-- STAGE 1: INTAKE STREAM -->
+    <g transform="translate(32, 98)">
+      <rect width="194" height="136" rx="8" fill="url(#hs-card-dark)" stroke="#2E285F" stroke-width="1"/>
+      <rect x="1" y="1" width="192" height="26" rx="7" fill="#131432"/>
+      <text x="10" y="17" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#818CF8">01 // INTAKE STREAM</text>
+
+      <!-- Document Queue Stack -->
+      <g transform="translate(16, 46)">
+        <rect x="8" y="0" width="44" height="28" rx="4" fill="#1E1B4B" stroke="#4338CA" stroke-width="1"/>
+        <rect x="4" y="8" width="44" height="28" rx="4" fill="#24205C" stroke="#6366F1" stroke-width="1"/>
+        <rect x="0" y="16" width="44" height="32" rx="4" fill="#0C0F24" stroke="#818CF8" stroke-width="1.2"/>
+        <line x1="6" y1="24" x2="34" y2="24" stroke="#A5B4FC" stroke-width="1.2"/>
+        <line x1="6" y1="30" x2="26" y2="30" stroke="#6366F1" stroke-width="1.2"/>
+        <line x1="6" y1="36" x2="38" y2="36" stroke="#4338CA" stroke-width="1.2"/>
+        <circle cx="36" cy="18" r="3.5" fill="#C084FC" class="hs-lamp"/>
+      </g>
+
+      <g transform="translate(70, 46)">
+        <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">Gmail Intake</text>
+        <text x="0" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500" fill="#94A3B8">Automated Poller</text>
+        <text x="0" y="48" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#C084FC">PDF / Invoice Queues</text>
+      </g>
+    </g>
+
+    <!-- PIPELINE CONDUIT 1 -> 2 -->
+    <g transform="translate(226, 166)">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#2E285F" stroke-width="2"/>
+      <line x1="0" y1="0" x2="24" y2="0" stroke="url(#hs-stream-dark)" stroke-width="2" class="hs-wire"/>
+      <circle cx="12" cy="0" r="3" fill="#818CF8"/>
+    </g>
+
+    <!-- STAGE 2: OCR & LAYOUT PARSE -->
+    <g transform="translate(250, 98)">
+      <rect width="194" height="136" rx="8" fill="url(#hs-card-dark)" stroke="#2E285F" stroke-width="1"/>
+      <rect x="1" y="1" width="192" height="26" rx="7" fill="#131432"/>
+      <text x="10" y="17" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#818CF8">02 // OCR &amp; LAYOUT PARSE</text>
+
+      <!-- Laser Scanner Visual -->
+      <g transform="translate(16, 46)">
+        <rect width="46" height="52" rx="4" fill="#0A0C1D" stroke="#4338CA" stroke-width="1"/>
+        <rect x="6" y="8" width="14" height="6" rx="1" fill="#312E81"/>
+        <rect x="24" y="8" width="16" height="6" rx="1" fill="#312E81"/>
+        <rect x="6" y="18" width="34" height="7" rx="1" fill="#1E1B4B"/>
+        <rect x="6" y="29" width="20" height="6" rx="1" fill="#312E81"/>
+        <rect x="6" y="39" width="34" height="6" rx="1" fill="#1E1B4B"/>
+        <g class="hs-laser">
+          <line x1="2" y1="8" x2="44" y2="8" stroke="#C084FC" stroke-width="1.8" filter="url(#hs-glow-subtle)"/>
+        </g>
+      </g>
+
+      <g transform="translate(72, 46)">
+        <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">Spatial OCR</text>
+        <text x="0" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500" fill="#94A3B8">Bounding Boxes</text>
+        <text x="0" y="48" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#818CF8">Table Row Splitter</text>
+      </g>
+    </g>
+
+    <!-- PIPELINE CONDUIT 2 -> 3 -->
+    <g transform="translate(444, 166)">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#2E285F" stroke-width="2"/>
+      <line x1="0" y1="0" x2="24" y2="0" stroke="url(#hs-stream-dark)" stroke-width="2" class="hs-wire"/>
+      <circle cx="12" cy="0" r="3" fill="#C084FC"/>
+    </g>
+
+    <!-- STAGE 3: LLM SCHEMA GUARD -->
+    <g transform="translate(468, 98)">
+      <rect width="194" height="136" rx="8" fill="url(#hs-card-dark)" stroke="#2E285F" stroke-width="1"/>
+      <rect x="1" y="1" width="192" height="26" rx="7" fill="#131432"/>
+      <text x="10" y="17" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#818CF8">03 // LLM SCHEMA GUARD</text>
+
+      <!-- JSON Structure Node -->
+      <g transform="translate(16, 46)">
+        <rect width="50" height="50" rx="7" fill="#0C0D22" stroke="#6366F1" stroke-width="1.2"/>
+        <text x="8" y="18" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#C084FC">{</text>
+        <text x="16" y="27" font-family="ui-monospace, monospace" font-size="8" fill="#818CF8">sku: str</text>
+        <text x="16" y="37" font-family="ui-monospace, monospace" font-size="8" fill="#34D399">val: num</text>
+        <text x="8" y="45" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#C084FC">}</text>
+      </g>
+
+      <g transform="translate(76, 46)">
+        <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">Gemini LLM</text>
+        <text x="0" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500" fill="#94A3B8">Pydantic Contracts</text>
+        <text x="0" y="48" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#C084FC">Typed Schema Lock</text>
+      </g>
+    </g>
+
+    <!-- PIPELINE CONDUIT 3 -> 4 -->
+    <g transform="translate(662, 166)">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#2E285F" stroke-width="2"/>
+      <line x1="0" y1="0" x2="24" y2="0" stroke="url(#hs-stream-dark)" stroke-width="2" class="hs-wire"/>
+      <circle cx="12" cy="0" r="3" fill="#818CF8"/>
+    </g>
+
+    <!-- STAGE 4: CATALOG DATABASE (Structured SKU Records) -->
+    <g transform="translate(686, 98)">
+      <rect width="202" height="136" rx="8" fill="url(#hs-card-dark)" stroke="#6366F1" stroke-width="1.2"/>
+      <rect x="1" y="1" width="200" height="26" rx="7" fill="#131536"/>
+      <text x="10" y="17" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#A5B4FC">04 // CATALOG DATABASE</text>
+
+      <!-- Structured Schema Record Graphic -->
+      <g transform="translate(16, 46)">
+        <rect width="170" height="38" rx="4" fill="#0A0C1D" stroke="#2E285F" stroke-width="0.8"/>
+        <!-- Table Column Headers -->
+        <rect x="6" y="6" width="46" height="11" rx="2" fill="#1E1B4B"/>
+        <text x="10" y="15" font-family="ui-monospace, monospace" font-size="7.5" font-weight="700" fill="#818CF8">SKU_ID</text>
+        <rect x="56" y="6" width="52" height="11" rx="2" fill="#1E1B4B"/>
+        <text x="60" y="15" font-family="ui-monospace, monospace" font-size="7.5" font-weight="700" fill="#C084FC">VENDOR</text>
+        <rect x="112" y="6" width="52" height="11" rx="2" fill="#1E1B4B"/>
+        <text x="116" y="15" font-family="ui-monospace, monospace" font-size="7.5" font-weight="700" fill="#34D399">STATUS</text>
+        <!-- Data Row -->
+        <rect x="6" y="21" width="158" height="12" rx="2" fill="#14172E"/>
+        <text x="10" y="30" font-family="ui-monospace, monospace" font-size="8" fill="#F8FAFC">#70K-SKU</text>
+        <text x="60" y="30" font-family="ui-monospace, monospace" font-size="8" fill="#A5B4FC">RELATIONAL</text>
+        <text x="116" y="30" font-family="ui-monospace, monospace" font-size="8" fill="#34D399">VERIFIED</text>
+      </g>
+
+      <g transform="translate(16, 96)">
+        <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">70,000 Catalog SKUs</text>
+        <text x="0" y="28" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#34D399">● Clean Relational Storage</text>
+      </g>
+    </g>
+
+    <!-- Footer Technical Specs Bar -->
+    <g transform="translate(32, 256)">
+      <line x1="0" y1="0" x2="856" y2="0" stroke="#1E1B4B" stroke-width="0.8"/>
+      <text x="0" y="15" font-family="ui-monospace, monospace" font-size="9.5" fill="#64748B">ARCHITECTURE // GMAIL WEBHOOKS · MULTI-MODAL OCR · GEMINI API · PYDANTIC CONTRACTS · POSTGRESQL</text>
+      <text x="770" y="15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#818CF8">CASE STUDY ↗</text>
+    </g>
+  </g>
+
+  <!-- Exterior Frame Border -->
+  <rect x="0.5" y="0.5" width="919" height="279" rx="13.5" fill="none" stroke="#2E285F" stroke-width="1"/>
+</svg>

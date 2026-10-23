@@ -1,1 +1,232 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="580" height="258" viewBox="0 0 580 258"><defs><linearGradient id="b" x2="1" y2="1"><stop stop-color="#111823"/><stop offset="1" stop-color="#192934"/></linearGradient><filter id="g"><feGaussianBlur stdDeviation="5"/></filter></defs><style>@keyframes pulse{0%,100%{opacity:.24}50%{opacity:.9}}@keyframes travel{to{stroke-dashoffset:-46}}.p{animation:pulse 2.5s infinite}.d{stroke-dasharray:6 11;animation:travel 3s linear infinite}@media(prefers-reduced-motion:reduce){*{animation:none!important}}</style><rect width="580" height="258" rx="19" fill="url(#b)"/><rect x="1" y="1" width="578" height="256" rx="19" stroke="#52606B" stroke-opacity=".7" fill="none"/><text x="27" y="40" font-family="system-ui,sans-serif" fill="#DDA5FF" font-size="13" letter-spacing="2.6">ENGINEERING SYSTEM / 03</text><text x="27" y="91" font-family="system-ui,sans-serif" font-size="41" letter-spacing="-1.4" font-weight="730" fill="#F2F8FB">STRATOS</text><text x="28" y="123" font-family="system-ui,sans-serif" font-size="17" fill="#A9B9C4">SOURCE-GROUNDED AI</text><text x="28" y="210" font-family="system-ui,sans-serif" font-size="17" fill="#E8F3F5">69,070 catalogue products</text><path d="M332 172C371 172 378 103 427 103S488 169 536 129" fill="none" stroke="#DDA5FF" stroke-width="2" opacity=".7" class="d"/><path d="M332 172C371 172 378 103 427 103S488 169 536 129" fill="none" stroke="#DDA5FF" stroke-width="12" opacity=".08" filter="url(#g)"/><g fill="#DDA5FF"><circle cx="332" cy="172" r="6" class="p"/><circle cx="427" cy="103" r="8" class="p"/><circle cx="536" cy="129" r="6" class="p"/></g><path d="M26 225H556" stroke="#647580" opacity=".3"/><text x="535" y="240" font-family="monospace" font-size="12" fill="#DDA5FF">↗</text></svg>
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="940" height="320" viewBox="0 0 940 320" role="img" aria-labelledby="st-dark-t st-dark-d">
+  <title id="st-dark-t">STRATOS — Source-Grounded Generative AI Architecture</title>
+  <desc id="st-dark-d">Deterministic retrieval-grounded AI system across 69,070 catalogue products with zero hallucination guarantee.</desc>
+  <defs>
+    <!-- Dark Architectural Canvas Gradients -->
+    <linearGradient id="st-dark-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050E0C"/>
+      <stop offset="60%" stop-color="#091815"/>
+      <stop offset="100%" stop-color="#040A09"/>
+    </linearGradient>
+
+    <linearGradient id="st-card-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0C201C" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#081714" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <linearGradient id="st-stream-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="50%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+
+    <radialGradient id="st-spotlight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#059669" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#050E0C" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="st-glow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <pattern id="st-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#064E3B" stroke-width="0.6" stroke-opacity="0.4"/>
+    </pattern>
+
+    <clipPath id="st-clip">
+      <rect x="0" y="0" width="940" height="320" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes stPacketMove { 0% { stroke-dashoffset: 40; } 100% { stroke-dashoffset: 0; } }
+    @keyframes stClusterSpin { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.15); opacity: 1; } }
+    @keyframes stBarrierPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.95; } }
+    @keyframes stLockFlash { 0%, 100% { filter: drop-shadow(0 0 2px #34D399); } 50% { filter: drop-shadow(0 0 8px #34D399); } }
+
+    .st-packet-wire { stroke-dasharray: 6 14; animation: stPacketMove 1.6s linear infinite; }
+    .st-cluster-node { animation: stClusterSpin 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .st-barrier-beam { animation: stBarrierPulse 2s ease-in-out infinite; }
+    .st-lock-icon { animation: stLockFlash 3s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, .st-packet-wire, .st-cluster-node, .st-barrier-beam, .st-lock-icon {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+
+  <g clip-path="url(#st-clip)">
+    <!-- Canvas Backdrop -->
+    <rect width="940" height="320" fill="url(#st-dark-bg)"/>
+    <rect width="940" height="320" fill="url(#st-grid)"/>
+
+    <!-- Architectural Header Bar -->
+    <g transform="translate(36, 32)">
+      <!-- System Tag & Outcome Badge -->
+      <rect width="216" height="24" rx="5" fill="#09201B" stroke="#047857" stroke-width="1"/>
+      <circle cx="10" cy="12" r="3" fill="#34D399" filter="url(#st-glow-subtle)"/>
+      <text x="20" y="15.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="1" fill="#6EE7B7">SYSTEM 03 // GROUNDED AI</text>
+
+      <text x="0" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="26" font-weight="800" letter-spacing="-0.8" fill="#F8FAFC">
+        STRATOS
+      </text>
+      <text x="146" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="13" font-weight="500" fill="#94A3B8">
+        Deterministic Source-Grounded RAG across 69,070 Catalogue Products
+      </text>
+
+      <!-- Verified Metric High-Contrast Tag -->
+      <g transform="translate(640, 0)">
+        <rect width="228" height="32" rx="6" fill="#081A16" stroke="#059669" stroke-width="1.2"/>
+        <text x="12" y="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" fill="#34D399">69,070 CATALOGUE SKUs</text>
+        <rect x="180" y="7" width="40" height="18" rx="3" fill="#10B981" fill-opacity="0.2"/>
+        <text x="186" y="19" font-family="ui-monospace, monospace" font-size="8.5" font-weight="700" fill="#34D399">0-HAL</text>
+      </g>
+    </g>
+
+    <!-- Hairline Divider -->
+    <line x1="36" y1="104" x2="904" y2="104" stroke="#064E3B" stroke-width="1"/>
+
+    <!-- ======================================================== -->
+    <!-- ARCHITECTURAL FLOW PIPELINE (QUERY -> RETRIEVAL -> GUARD -> OUTPUT) -->
+    <!-- ======================================================== -->
+
+    <!-- STEP 1: QUERY & EMBEDDING ENCODER (x=36, y=122) -->
+    <g transform="translate(36, 122)">
+      <rect width="186" height="152" rx="10" fill="url(#st-card-bg)" stroke="#065F46" stroke-width="1"/>
+      <rect x="1" y="1" width="184" height="26" rx="9" fill="#08231E"/>
+      <text x="12" y="17" font-family="ui-monospace, monospace" font-size="8.5" font-weight="700" letter-spacing="0.8" fill="#34D399">01 // QUERY INTENT &amp; EMBED</text>
+
+      <!-- Dense Vector Representation Visual -->
+      <g transform="translate(18, 50)">
+        <rect width="50" height="52" rx="6" fill="#051713" stroke="#047857" stroke-width="1.2"/>
+        <text x="10" y="18" font-family="ui-monospace, monospace" font-size="8" fill="#6EE7B7">vec[0..768]</text>
+        <!-- Bar representation of vector values -->
+        <rect x="10" y="24" width="28" height="3" rx="1.5" fill="#34D399"/>
+        <rect x="10" y="30" width="18" height="3" rx="1.5" fill="#38BDF8"/>
+        <rect x="10" y="36" width="30" height="3" rx="1.5" fill="#10B981"/>
+        <rect x="10" y="42" width="22" height="3" rx="1.5" fill="#34D399"/>
+      </g>
+
+      <g transform="translate(78, 50)">
+        <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">Domain Query</text>
+        <text x="0" y="28" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748B">Natural Language</text>
+        <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">Dense Embedder</text>
+        <text x="0" y="58" font-family="ui-monospace, monospace" font-size="8.5" fill="#34D399">Cosine Space Proj</text>
+      </g>
+    </g>
+
+    <!-- PIPELINE CONDUIT 1 -> 2 -->
+    <g transform="translate(222, 198)">
+      <line x1="0" y1="0" x2="44" y2="0" stroke="#065F46" stroke-width="2"/>
+      <line x1="0" y1="0" x2="44" y2="0" stroke="url(#st-stream-grad)" stroke-width="2" class="st-packet-wire"/>
+      <circle cx="22" cy="0" r="3" fill="#34D399"/>
+    </g>
+
+    <!-- STEP 2: DUAL-INDEX HYBRID RETRIEVAL (x=266, y=122) -->
+    <g transform="translate(266, 122)">
+      <rect width="186" height="152" rx="10" fill="url(#st-card-bg)" stroke="#065F46" stroke-width="1"/>
+      <rect x="1" y="1" width="184" height="26" rx="9" fill="#08231E"/>
+      <text x="12" y="17" font-family="ui-monospace, monospace" font-size="8.5" font-weight="700" letter-spacing="0.8" fill="#34D399">02 // HYBRID RETRIEVAL</text>
+
+      <!-- Vector Space Coordinate Cloud Visual -->
+      <g transform="translate(18, 48)">
+        <rect width="52" height="56" rx="6" fill="#041410" stroke="#059669" stroke-width="1"/>
+        <!-- Coordinate Axes -->
+        <line x1="6" y1="46" x2="46" y2="46" stroke="#047857" stroke-width="1"/>
+        <line x1="6" y1="46" x2="6" y2="10" stroke="#047857" stroke-width="1"/>
+        <!-- Cluster Points -->
+        <circle cx="16" cy="36" r="2" fill="#065F46"/>
+        <circle cx="24" cy="28" r="2" fill="#065F46"/>
+        <circle cx="34" cy="18" r="2" fill="#065F46"/>
+        <!-- Spotlight Nearest-Neighbor Candidate Cluster -->
+        <circle cx="32" cy="30" r="10" fill="url(#st-spotlight)"/>
+        <circle cx="32" cy="30" r="3" fill="#34D399" class="st-cluster-node"/>
+        <circle cx="38" cy="26" r="2" fill="#38BDF8"/>
+        <circle cx="28" cy="34" r="2" fill="#10B981"/>
+      </g>
+
+      <g transform="translate(80, 50)">
+        <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">Dense + BM25</text>
+        <text x="0" y="28" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748B">Dual-Index Rank</text>
+        <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">69,070 SKUs</text>
+        <text x="0" y="58" font-family="ui-monospace, monospace" font-size="8.5" fill="#38BDF8">Top-K Candidate Set</text>
+      </g>
+    </g>
+
+    <!-- PIPELINE CONDUIT 2 -> 3 -->
+    <g transform="translate(452, 198)">
+      <line x1="0" y1="0" x2="44" y2="0" stroke="#065F46" stroke-width="2"/>
+      <line x1="0" y1="0" x2="44" y2="0" stroke="url(#st-stream-grad)" stroke-width="2" class="st-packet-wire"/>
+      <circle cx="22" cy="0" r="3" fill="#38BDF8"/>
+    </g>
+
+    <!-- STEP 3: ATTRIBUTION GATE & CITATION ENFORCER (x=496, y=122) -->
+    <g transform="translate(496, 122)">
+      <rect width="186" height="152" rx="10" fill="url(#st-card-bg)" stroke="#065F46" stroke-width="1"/>
+      <rect x="1" y="1" width="184" height="26" rx="9" fill="#08231E"/>
+      <text x="12" y="17" font-family="ui-monospace, monospace" font-size="8.5" font-weight="700" letter-spacing="0.8" fill="#34D399">03 // CITATION BARRIER</text>
+
+      <!-- Optical Grounding Barrier & Shield -->
+      <g transform="translate(18, 50)">
+        <rect width="52" height="52" rx="8" fill="#051713" stroke="#10B981" stroke-width="1.2"/>
+        <!-- Vertical Beam Barrier -->
+        <line x1="26" y1="8" x2="26" y2="44" stroke="#34D399" stroke-width="3" stroke-linecap="round" class="st-barrier-beam" filter="url(#st-glow-subtle)"/>
+        <!-- Verification Check / Shield Icon -->
+        <circle cx="26" cy="26" r="10" fill="#09251F" stroke="#34D399" stroke-width="1.2" class="st-lock-icon"/>
+        <polyline points="22,26 25,29 31,23" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+
+      <g transform="translate(80, 50)">
+        <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">Cross-Encoder</text>
+        <text x="0" y="28" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748B">Claim Verification</text>
+        <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">Zero Hallucination</text>
+        <text x="0" y="58" font-family="ui-monospace, monospace" font-size="8.5" fill="#34D399">Ungrounded Filter</text>
+      </g>
+    </g>
+
+    <!-- PIPELINE CONDUIT 3 -> 4 -->
+    <g transform="translate(682, 198)">
+      <line x1="0" y1="0" x2="44" y2="0" stroke="#065F46" stroke-width="2"/>
+      <line x1="0" y1="0" x2="44" y2="0" stroke="url(#st-stream-grad)" stroke-width="2" class="st-packet-wire"/>
+      <circle cx="22" cy="0" r="3" fill="#10B981"/>
+    </g>
+
+    <!-- STEP 4: SOURCE-ATTRIBUTED SYNTHESIS (x=726, y=122) -->
+    <g transform="translate(726, 122)">
+      <rect width="178" height="152" rx="10" fill="url(#st-card-bg)" stroke="#10B981" stroke-width="1.2"/>
+      <rect x="1" y="1" width="176" height="26" rx="9" fill="#082821"/>
+      <text x="12" y="17" font-family="ui-monospace, monospace" font-size="8.5" font-weight="700" letter-spacing="0.8" fill="#6EE7B7">04 // VERIFIED SYNTHESIS</text>
+
+      <!-- Attributed Output Card Graphic -->
+      <g transform="translate(16, 48)">
+        <rect width="146" height="42" rx="5" fill="#041611" stroke="#065F46" stroke-width="0.8"/>
+        <!-- Synthesis text line -->
+        <line x1="10" y1="12" x2="136" y2="12" stroke="#6EE7B7" stroke-width="1.5"/>
+        <line x1="10" y1="20" x2="100" y2="20" stroke="#34D399" stroke-width="1.2"/>
+        <!-- Provenance Citation Pill -->
+        <rect x="10" y="27" width="60" height="11" rx="3" fill="#064E3B" stroke="#10B981" stroke-width="0.8"/>
+        <text x="14" y="35" font-family="ui-monospace, monospace" font-size="7" font-weight="700" fill="#A7F3D0">[SKU-49102 ↗]</text>
+      </g>
+
+      <g transform="translate(18, 104)">
+        <text x="0" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#F8FAFC">Attributed Output</text>
+        <text x="0" y="26" font-family="ui-monospace, monospace" font-size="8.5" fill="#34D399">● 100% Verifiable Citations</text>
+        <text x="0" y="39" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748B">Source Grounding Locked</text>
+      </g>
+    </g>
+
+    <!-- Footer Status Rule -->
+    <g transform="translate(36, 292)">
+      <line x1="0" y1="0" x2="868" y2="0" stroke="#064E3B" stroke-width="0.8"/>
+      <text x="0" y="16" font-family="ui-monospace, monospace" font-size="9" fill="#64748B">ARCHITECTURE // VECTOR EMBEDDINGS · BM25 SEARCH · CROSS-ENCODER VERIFIER · CITATION GUARDRAIL · FASTAPI</text>
+      <text x="760" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10.5" font-weight="700" fill="#34D399">CASE STUDY ↗</text>
+    </g>
+  </g>
+
+  <!-- Border Frame -->
+  <rect x="0.5" y="0.5" width="939" height="319" rx="13.5" fill="none" stroke="#065F46" stroke-width="1"/>
+</svg>

@@ -1,0 +1,714 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile README Simulator — Sanjay Systems</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-page: #010409;
+      --bg-header: #0d1117;
+      --border-header: #30363d;
+      --text-header: #e6edf3;
+      --accent: #58a6ff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-header);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Simulation Control Toolbar */
+    .sim-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-header);
+      border-bottom: 1px solid var(--border-header);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .sim-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .sim-badge {
+      background: #238636;
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+    .sim-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-group {
+      display: inline-flex;
+      border: 1px solid var(--border-header);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .sim-btn {
+      background: #21262d;
+      color: #c9d1d9;
+      border: none;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sim-btn:hover {
+      background: #30363d;
+      color: #f0f6fc;
+    }
+    .sim-btn.active {
+      background: #1f6feb;
+      color: #ffffff;
+    }
+
+    /* GitHub Profile Workspace Mock */
+    .gh-stage-outer {
+      flex: 1;
+      padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+      transition: background 0.2s ease;
+    }
+
+    .gh-viewport-frame {
+      width: 1012px; /* Standard GitHub Repository / Profile Container Width */
+      max-width: 100%;
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gh-viewport-frame.viewport-mobile {
+      width: 375px;
+    }
+    .gh-viewport-frame.viewport-tablet {
+      width: 768px;
+    }
+
+    /* GitHub Repository Card Shell */
+    .gh-repo-card {
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+
+    .gh-repo-header {
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      border-bottom: 1px solid;
+    }
+    .gh-repo-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gh-readme-label {
+      font-size: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      opacity: 0.75;
+    }
+
+    /* GitHub Markdown Body Implementation (Dark & Light) */
+    .markdown-body {
+      padding: 32px;
+      font-size: 14px;
+      line-height: 1.6;
+      word-wrap: break-word;
+      transition: all 0.2s ease;
+    }
+    @media (max-width: 600px) {
+      .markdown-body {
+        padding: 16px;
+        font-size: 13.5px;
+      }
+    }
+
+    /* DARK THEME PRIMER */
+    html[data-theme="dark"] .gh-stage-outer {
+      background: #010409;
+    }
+    html[data-theme="dark"] .gh-repo-card {
+      background: #0d1117;
+      border: 1px solid #30363d;
+    }
+    html[data-theme="dark"] .gh-repo-header {
+      background: #161b22;
+      border-color: #30363d;
+      color: #e6edf3;
+    }
+    html[data-theme="dark"] .markdown-body {
+      background: #0d1117;
+      color: #e6edf3;
+    }
+    html[data-theme="dark"] .markdown-body h1,
+    html[data-theme="dark"] .markdown-body h2,
+    html[data-theme="dark"] .markdown-body h3 {
+      color: #f0f6fc;
+      border-bottom-color: #21262d;
+    }
+    html[data-theme="dark"] .markdown-body a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    html[data-theme="dark"] .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    html[data-theme="dark"] .markdown-body hr {
+      border: 0;
+      border-top: 1px solid #21262d;
+      margin: 28px 0;
+    }
+    html[data-theme="dark"] .markdown-body blockquote {
+      border-left: 3px solid #388bfd;
+      color: #8b949e;
+      background: rgba(56, 139, 253, 0.08);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 14px 0;
+    }
+    html[data-theme="dark"] .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    html[data-theme="dark"] .markdown-body th {
+      background: #161b22;
+      color: #f0f6fc;
+      padding: 10px 12px;
+      border: 1px solid #30363d;
+      font-weight: 600;
+      text-align: left;
+    }
+    html[data-theme="dark"] .markdown-body td {
+      padding: 10px 12px;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+    }
+    html[data-theme="dark"] .markdown-body details {
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      background: #0d1117;
+    }
+    html[data-theme="dark"] .markdown-body summary {
+      cursor: pointer;
+      color: #58a6ff;
+      font-weight: 600;
+      outline: none;
+    }
+
+    /* LIGHT THEME PRIMER */
+    html[data-theme="light"] .gh-stage-outer {
+      background: #f6f8fa;
+    }
+    html[data-theme="light"] .gh-repo-card {
+      background: #ffffff;
+      border: 1px solid #d0d7de;
+    }
+    html[data-theme="light"] .gh-repo-header {
+      background: #f6f8fa;
+      border-color: #d0d7de;
+      color: #1f2328;
+    }
+    html[data-theme="light"] .markdown-body {
+      background: #ffffff;
+      color: #1f2328;
+    }
+    html[data-theme="light"] .markdown-body h1,
+    html[data-theme="light"] .markdown-body h2,
+    html[data-theme="light"] .markdown-body h3 {
+      color: #1f2328;
+      border-bottom-color: #d8dee4;
+    }
+    html[data-theme="light"] .markdown-body a {
+      color: #0969da;
+      text-decoration: none;
+    }
+    html[data-theme="light"] .markdown-body a:hover {
+      text-decoration: underline;
+    }
+    html[data-theme="light"] .markdown-body hr {
+      border: 0;
+      border-top: 1px solid #d0d7de;
+      margin: 28px 0;
+    }
+    html[data-theme="light"] .markdown-body blockquote {
+      border-left: 3px solid #0969da;
+      color: #57606a;
+      background: rgba(9, 105, 218, 0.05);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 14px 0;
+    }
+    html[data-theme="light"] .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    html[data-theme="light"] .markdown-body th {
+      background: #f6f8fa;
+      color: #1f2328;
+      padding: 10px 12px;
+      border: 1px solid #d0d7de;
+      font-weight: 600;
+      text-align: left;
+    }
+    html[data-theme="light"] .markdown-body td {
+      padding: 10px 12px;
+      border: 1px solid #d0d7de;
+      color: #24292f;
+    }
+    html[data-theme="light"] .markdown-body details {
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      background: #ffffff;
+    }
+    html[data-theme="light"] .markdown-body summary {
+      cursor: pointer;
+      color: #0969da;
+      font-weight: 600;
+      outline: none;
+    }
+
+    /* Picture / Image Rules */
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    /* Theme-aware picture simulation: in simulator, toggle pictures according to data-theme */
+    html[data-theme="dark"] picture source[media*="prefers-color-scheme: light"] {
+      display: none;
+    }
+    html[data-theme="light"] picture source[media*="prefers-color-scheme: dark"] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIMULATOR CONTROL BAR -->
+  <header class="sim-toolbar">
+    <div class="sim-brand">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/>
+      </svg>
+      <span>sanjay-078 / <b>sanjay-078</b></span>
+      <span class="sim-badge">Special Repository</span>
+    </div>
+
+    <div class="sim-controls">
+      <!-- Theme Switcher -->
+      <div class="btn-group">
+        <button type="button" class="sim-btn active" id="btn-theme-dark" onclick="setTheme('dark')">
+          🌙 Dark Theme
+        </button>
+        <button type="button" class="sim-btn" id="btn-theme-light" onclick="setTheme('light')">
+          ☀️ Light Theme
+        </button>
+      </div>
+
+      <!-- Viewport Switcher -->
+      <div class="btn-group">
+        <button type="button" class="sim-btn active" id="btn-vp-desktop" onclick="setViewport('desktop')">
+          🖥️ Desktop (1012px)
+        </button>
+        <button type="button" class="sim-btn" id="btn-vp-tablet" onclick="setViewport('tablet')">
+          📱 Tablet (768px)
+        </button>
+        <button type="button" class="sim-btn" id="btn-vp-mobile" onclick="setViewport('mobile')">
+          📲 Mobile (375px)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- GITHUB REPOSITORY PROFILE WORKSPACE -->
+  <main class="gh-stage-outer">
+    <div id="gh-frame" class="gh-viewport-frame">
+      <div class="gh-repo-card">
+
+        <!-- Header Bar simulating GitHub's README block header -->
+        <div class="gh-repo-header">
+          <div class="gh-repo-title">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" opacity="0.7">
+              <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688Z"/>
+            </svg>
+            <span>sanjay-078 / <b>README.md</b></span>
+          </div>
+          <span class="gh-readme-label">PROFILE RENDERING ENGINE</span>
+        </div>
+
+        <!-- Rendered README Content -->
+        <article class="markdown-body" id="readme-article">
+
+          <div align="center">
+            <a href="https://sanjay-078.github.io/sanjay-078/" title="Launch Sanjay Systems — NEXUS-01 Interactive OS">
+              <picture>
+                <source media="(prefers-color-scheme: dark)" srcset="./assets/nexus-hero-dark.svg">
+                <source media="(prefers-color-scheme: light)" srcset="./assets/nexus-hero-light.svg">
+                <img id="img-hero" alt="Sanjay Systems — NEXUS-01 Flagship Intelligence Core" src="./assets/nexus-hero-dark.svg" width="100%">
+              </picture>
+            </a>
+
+            <p style="margin: 14px 0; font-size: 14.5px; line-height: 1.6;">
+              <b>Forward Deployed Systems &amp; Generative AI Engineer</b> · <i>Shipping intelligent architectures that survive enterprise reality.</i><br />
+              <br />
+              <a href="https://sanjay-078.github.io/sanjay-078/"><b>⚡ LAUNCH NEXUS-01 LAB</b></a> &nbsp;·&nbsp;
+              <a href="https://sanjay-fde.vercel.app"><b>PORTFOLIO ↗</b></a> &nbsp;·&nbsp;
+              <a href="https://www.linkedin.com/in/sanxay/"><b>LINKEDIN ↗</b></a> &nbsp;·&nbsp;
+              <a href="mailto:sksubbusanjayai@gmail.com"><b>EMAIL ↗</b></a>
+            </p>
+          </div>
+
+          <hr>
+
+          <h3><code>// PERSPECTIVE</code></h3>
+          <p style="font-size: 14.5px; line-height: 1.65;">
+            Frontier generative models only generate durable enterprise value when grounded in deterministic architecture, resilient data pipelines, and audited failure boundaries. As a Forward Deployed Engineer, I specialize in bridging prototype intelligence with operational reality—engineering edge telemetry, high-throughput extraction pipelines, and citation-enforced generative AI that business teams rely upon daily.
+          </p>
+
+          <hr>
+
+          <h3><code>// FLAGSHIP ARCHITECTURES</code></h3>
+          <p style="margin-bottom: 20px; opacity: 0.85;">
+            Four production-grade systems engineered for tangible operational challenges, verified by audited metrics and live deployments.
+          </p>
+
+          <!-- 01 · FIREBLADE -->
+          <div style="margin-bottom: 32px;">
+            <h3 style="margin-top: 0; border: none; font-size: 18px; font-weight: 700;">
+              01 · FIREBLADE // MOBILE-TO-CLOUD TELEMETRY
+            </h3>
+            <blockquote>
+              <b>Verified Production Outcome:</b> <code>20 Employee Phones Deployed in Daily Enterprise Operations · Zero Event Loss</code>
+            </blockquote>
+            <p style="margin: 12px 0;">
+              An edge-to-cloud telephony intelligence pipeline capturing high-frequency call telemetry across mobile fleets. Designed with an offline-first SQLite ring buffer to guarantee zero event loss during spotty field connectivity, streaming securely into a hardened FastAPI gateway and real-time operations dashboard.
+            </p>
+            <div align="center">
+              <a href="https://sanjay-fde.vercel.app/work/fireblade" title="Inspect FIREBLADE Case Study">
+                <picture>
+                  <source media="(prefers-color-scheme: dark)" srcset="./assets/fireblade-dark.svg">
+                  <source media="(prefers-color-scheme: light)" srcset="./assets/fireblade-light.svg">
+                  <img id="img-fb" alt="FIREBLADE — Mobile-to-Cloud Telephony Telemetry Architecture" src="./assets/fireblade-dark.svg" width="100%">
+                </picture>
+              </a>
+            </div>
+            <details>
+              <summary><b>System Architecture &amp; Engineering Specification</b></summary>
+              <div style="margin-top: 12px;">
+                <table>
+                  <thead>
+                    <tr><th>Layer</th><th>Implementation &amp; Protocols</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><b>Mobile Edge Daemon</b></td><td>Kotlin background service running Android telephony state listeners, capturing call state transitions, audio metadata, and network quality indicators.</td></tr>
+                    <tr><td><b>Resilient Edge Queue</b></td><td>Local SQLite ring buffer with exponential backoff retry policies, ensuring zero telemetry loss during connectivity drops.</td></tr>
+                    <tr><td><b>Ingestion Gateway</b></td><td>FastAPI reverse-proxy endpoint enforcing TLS 1.3, HMAC request signatures, and per-device rate limiting.</td></tr>
+                    <tr><td><b>Analytics Engine</b></td><td>Automated event normalization and Postgres aggregation, feeding executive duration histograms and sentiment metrics.</td></tr>
+                  </tbody>
+                </table>
+                <p><b>Key Engineering Challenges Overcome:</b></p>
+                <ul style="padding-left: 20px; margin-bottom: 12px;">
+                  <li>Circumventing Android Doze mode and manufacturer background execution limits without compromising device battery life.</li>
+                  <li>Handling out-of-order event delivery caused by asynchronous cellular reconnects through sequence monotonic timestamping.</li>
+                </ul>
+                <p><a href="https://sanjay-fde.vercel.app/work/fireblade"><b>Read Full FIREBLADE Engineering Case Study ↗</b></a></p>
+              </div>
+            </details>
+          </div>
+
+          <hr>
+
+          <!-- 02 · HYPERSPEED -->
+          <div style="margin-bottom: 32px;">
+            <h3 style="margin-top: 0; border: none; font-size: 18px; font-weight: 700;">
+              02 · HYPERSPEED // EXTRACTION AUTOMATION
+            </h3>
+            <blockquote>
+              <b>Verified Production Outcome:</b> <code>~200,000 Supplier Emails Processed · ~70,000 Catalog SKUs Extracted</code>
+            </blockquote>
+            <p style="margin: 12px 0;">
+              An automated document intelligence pipeline ingesting high-volume unstructured supplier communications, multi-page PDF catalogs, and non-standard invoice tables. Couples spatial OCR layout analysis with schema-guarded Gemini API extraction to construct a deduplicated, relational enterprise product catalog.
+            </p>
+            <div align="center">
+              <a href="https://sanjay-fde.vercel.app/work/hyperspeed" title="Inspect HYPERSPEED Case Study">
+                <picture>
+                  <source media="(prefers-color-scheme: dark)" srcset="./assets/hyperspeed-dark.svg">
+                  <source media="(prefers-color-scheme: light)" srcset="./assets/hyperspeed-light.svg">
+                  <img id="img-hs" alt="HYPERSPEED — High-Throughput Extraction Pipeline Architecture" src="./assets/hyperspeed-dark.svg" width="100%">
+                </picture>
+              </a>
+            </div>
+            <details>
+              <summary><b>System Architecture &amp; Engineering Specification</b></summary>
+              <div style="margin-top: 12px;">
+                <table>
+                  <thead>
+                    <tr><th>Layer</th><th>Implementation &amp; Protocols</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><b>Multi-Stream Intake</b></td><td>Automated Gmail API webhook poller and multi-threaded attachment ingestor handling MIME types, raw text, and nested PDFs.</td></tr>
+                    <tr><td><b>Layout Decomposition</b></td><td>Multi-modal OCR bounding-box segmenter detecting complex invoice tables, multi-column price lists, and irregular scan orientations.</td></tr>
+                    <tr><td><b>LLM Schema Enforcement</b></td><td>Gemini API prompted with strict Pydantic data contracts, few-shot schema validation, and self-consistency extraction chains.</td></tr>
+                    <tr><td><b>Relational Catalog</b></td><td>Automated deduplication and entity resolution matrix storing clean normalized product records into PostgreSQL.</td></tr>
+                  </tbody>
+                </table>
+                <p><b>Key Engineering Challenges Overcome:</b></p>
+                <ul style="padding-left: 20px; margin-bottom: 12px;">
+                  <li>Parsing heavily distorted table structures from low-resolution PDF scans where traditional tabular regex parsers fail.</li>
+                  <li>Eliminating LLM schema drift and non-deterministic formatting through programmatic runtime type validation and automatic retry prompting.</li>
+                </ul>
+                <p><a href="https://sanjay-fde.vercel.app/work/hyperspeed"><b>Read Full HYPERSPEED Engineering Case Study ↗</b></a></p>
+              </div>
+            </details>
+          </div>
+
+          <hr>
+
+          <!-- 03 · STRATOS -->
+          <div style="margin-bottom: 32px;">
+            <h3 style="margin-top: 0; border: none; font-size: 18px; font-weight: 700;">
+              03 · STRATOS // SOURCE-GROUNDED GENERATIVE AI
+            </h3>
+            <blockquote>
+              <b>Verified Production Outcome:</b> <code>Deterministic Grounding Across 69,070 Catalogue Products · Zero Hallucination</code>
+            </blockquote>
+            <p style="margin: 12px 0;">
+              A hallucination-resistant generative AI assistant engineered for enterprise commerce. Features a hybrid retrieval engine combining dense vector embeddings with BM25 sparse keyword filtering over 69,070 catalogue items, fortified by an optical cross-encoder verification barrier that enforces 100% source SKU attribution before response emission.
+            </p>
+            <div align="center">
+              <a href="https://sanjay-fde.vercel.app/work/stratos" title="Inspect STRATOS Case Study">
+                <picture>
+                  <source media="(prefers-color-scheme: dark)" srcset="./assets/stratos-dark.svg">
+                  <source media="(prefers-color-scheme: light)" srcset="./assets/stratos-light.svg">
+                  <img id="img-st" alt="STRATOS — Source-Grounded Generative AI Architecture" src="./assets/stratos-dark.svg" width="100%">
+                </picture>
+              </a>
+            </div>
+            <details>
+              <summary><b>System Architecture &amp; Engineering Specification</b></summary>
+              <div style="margin-top: 12px;">
+                <table>
+                  <thead>
+                    <tr><th>Layer</th><th>Implementation &amp; Protocols</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><b>Query Intent Encoder</b></td><td>Dense vector projection translating technical domain queries into normalized 768-dimensional latent representations.</td></tr>
+                    <tr><td><b>Dual-Index Retrieval</b></td><td>Hybrid search architecture pairing cosine vector similarity with BM25 sparse keyword indexing over 69,070 catalog items.</td></tr>
+                    <tr><td><b>Grounding Cross-Encoder</b></td><td>Strict attribution barrier comparing candidate output tokens against retrieved source chunks; ungrounded assertions are stripped.</td></tr>
+                    <tr><td><b>Attributed Synthesis</b></td><td>Generative synthesis emitting structured Markdown responses with cryptographic SKU provenance links and confidence scoring.</td></tr>
+                  </tbody>
+                </table>
+                <p><b>Key Engineering Challenges Overcome:</b></p>
+                <ul style="padding-left: 20px; margin-bottom: 12px;">
+                  <li>Eliminating plausible synthetic hallucinations in technical product specifications where incorrect dimensions or ratings carry commercial liability.</li>
+                  <li>Achieving sub-180ms P99 retrieval latency over dense high-dimensional index spaces using quantized vector clustering.</li>
+                </ul>
+                <p><a href="https://sanjay-fde.vercel.app/work/stratos"><b>Read Full STRATOS Engineering Case Study ↗</b></a></p>
+              </div>
+            </details>
+          </div>
+
+          <hr>
+
+          <!-- 04 · DECIBEL -->
+          <div style="margin-bottom: 32px;">
+            <h3 style="margin-top: 0; border: none; font-size: 18px; font-weight: 700;">
+              04 · DECIBEL // WORKFLOW ENGINE &amp; CRM
+            </h3>
+            <blockquote>
+              <b>Verified Production Outcome:</b> <code>3 Business Departments Coordinated · 19/19 Passing End-to-End Test Suites</code>
+            </blockquote>
+            <p style="margin: 12px 0;">
+              A mission-critical operational state machine and cross-department CRM routing commercial inquiries, fulfillment orders, and support tickets. Built with deterministic state transition logic, atomic locking, and an automated continuous test verification harness maintaining 19/19 passing Playwright end-to-end integration test suites.
+            </p>
+            <div align="center">
+              <a href="https://sanjay-fde.vercel.app/work/decibel" title="Inspect DECIBEL Case Study">
+                <picture>
+                  <source media="(prefers-color-scheme: dark)" srcset="./assets/decibel-dark.svg">
+                  <source media="(prefers-color-scheme: light)" srcset="./assets/decibel-light.svg">
+                  <img id="img-db" alt="DECIBEL — Operations Engine &amp; CRM Architecture" src="./assets/decibel-dark.svg" width="100%">
+                </picture>
+              </a>
+            </div>
+            <details>
+              <summary><b>System Architecture &amp; Engineering Specification</b></summary>
+              <div style="margin-top: 12px;">
+                <table>
+                  <thead>
+                    <tr><th>Layer</th><th>Implementation &amp; Protocols</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><b>Intake Queue &amp; SLA</b></td><td>Omni-channel enquiry intake with automated tier-based priority scoring and countdown timers.</td></tr>
+                    <tr><td><b>Finite State Machine</b></td><td>Deterministic directed acyclic graph (DAG) governing inquiry lifecycle transitions with atomic concurrency locks.</td></tr>
+                    <tr><td><b>Departmental Queues</b></td><td>3 synchronized operational work streams: Commercial Sales Desk, Logistics Fulfillment, and Support Escalation.</td></tr>
+                    <tr><td><b>Automated Verification</b></td><td>Continuous integration test suite executing 19 comprehensive Playwright and Jest end-to-end user journey checks.</td></tr>
+                  </tbody>
+                </table>
+                <p><b>Key Engineering Challenges Overcome:</b></p>
+                <ul style="padding-left: 20px; margin-bottom: 12px;">
+                  <li>Preventing race conditions and orphaned workflow tickets when multiple department agents concurrently access shared order states.</li>
+                  <li>Providing full auditability and SLA compliance reporting across disparate legacy enterprise communication channels.</li>
+                </ul>
+                <p><a href="https://sanjay-fde.vercel.app/work/decibel"><b>Read Full DECIBEL Engineering Case Study ↗</b></a></p>
+              </div>
+            </details>
+          </div>
+
+          <hr>
+
+          <!-- NEXUS-01 LAB -->
+          <h3><code>// NEXUS-01 INTERACTIVE LABORATORY</code></h3>
+          <p>
+            The identity hero at the top of this profile represents <b>NEXUS-01</b>, an original hardware-inspired artificial intelligence architecture. You can interact directly with simulated companion sub-routines in the dedicated <b>GitHub Pages Lab</b>:
+          </p>
+
+          <div align="center" style="margin: 20px 0;">
+            <p>
+              <a href="https://sanjay-078.github.io/sanjay-078/?mode=wave"><b>👋 WAVE PROTOCOL</b></a> &nbsp;·&nbsp;
+              <a href="https://sanjay-078.github.io/sanjay-078/?mode=scan"><b>⌕ DIAGNOSTIC SCAN</b></a> &nbsp;·&nbsp;
+              <a href="https://sanjay-078.github.io/sanjay-078/?mode=think"><b>✦ COGNITIVE THINK</b></a> &nbsp;·&nbsp;
+              <a href="https://sanjay-078.github.io/sanjay-078/?mode=sleep"><b>☾ LOW POWER</b></a>
+            </p>
+            <p style="font-size: 12px; opacity: 0.75; margin-top: 6px;">
+              Featuring Apple-inspired OS boot sequencing, tactile telemetry switches, interactive command palette, and local architecture simulations.
+            </p>
+          </div>
+
+          <hr>
+
+          <!-- CORE TOOLING -->
+          <h3><code>// CORE TOOLING &amp; ENGINEERING STACK</code></h3>
+          <div align="center">
+            <table>
+              <thead>
+                <tr><th>Domain</th><th>Technologies &amp; Frameworks</th><th>Engineering Focus</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><b>Generative AI &amp; NLP</b></td><td>Gemini API, Vector Embeddings, RAG Architectures, Spatial OCR, Python</td><td>Grounding guardrails, schema enforcement, hallucination prevention</td></tr>
+                <tr><td><b>Distributed Systems &amp; Backend</b></td><td>FastAPI, Python, PostgreSQL, SQLite Edge Queues, REST APIs</td><td>Low-latency ingestion, offline buffering, high-concurrency throughput</td></tr>
+                <tr><td><b>Frontend &amp; Edge Telemetry</b></td><td>React, Next.js, TypeScript, Kotlin / Android Services, Modern CSS Systems</td><td>Resilient background daemons, executive dashboards, telemetry UI</td></tr>
+                <tr><td><b>Quality &amp; Continuous Delivery</b></td><td>Playwright E2E, Jest, Pytest, Git, Vercel, Schema Validation Matrix</td><td>Automated regression testing, SLA verification, zero-loss pipelines</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr>
+
+          <!-- PHILOSOPHY -->
+          <h3><code>// OPERATING PHILOSOPHY</code></h3>
+          <blockquote>
+            <em>"Software is only real when non-technical operators use it daily without failure."</em>
+          </blockquote>
+          <ol style="padding-left: 24px; line-height: 1.8;">
+            <li><b>Deterministic Grounding:</b> Enterprise generative AI must reference verified source records. Plausible hallucinations are treated as critical system faults.</li>
+            <li><b>Defensive Edge Resiliency:</b> Software operating on physical hardware or mobile networks must be architected for disconnection, battery throttles, and imperfect humans.</li>
+            <li><b>Audited Transparency:</b> Systems are verified by measurable production outcomes, passing test suites, and explicit failure boundaries.</li>
+            <li><b>Deploy Beyond the Demo:</b> Prototype code is trivial; durable engineering begins when production edge cases arrive.</li>
+          </ol>
+
+          <hr>
+
+          <div align="center" style="font-size: 12px; opacity: 0.75; line-height: 1.8;">
+            <span>SANJAY SYSTEMS // NEXUS-01 · ORIGINAL ARCHITECTURAL ASSETS · VERIFIED PUBLIC ENGINEERING DATA</span><br>
+            <span>
+              <a href="https://sanjay-fde.vercel.app">sanjay-fde.vercel.app</a> ·
+              <a href="https://github.com/sanjay-078">github.com/sanjay-078</a> ·
+              <a href="https://www.linkedin.com/in/sanxay/">linkedin.com/in/sanxay</a>
+            </span>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      var btnDark = document.getElementById('btn-theme-dark');
+      var btnLight = document.getElementById('btn-theme-light');
+      if (btnDark) btnDark.classList.toggle('active', theme === 'dark');
+      if (btnLight) btnLight.classList.toggle('active', theme === 'light');
+
+      // Update picture sources to force exact theme rendering in simulator
+      document.querySelectorAll('picture').forEach(function(pic) {
+        var darkSrc = pic.querySelector('source[srcset*="-dark"]');
+        var lightSrc = pic.querySelector('source[srcset*="-light"]');
+        var img = pic.querySelector('img');
+        if (theme === 'dark') {
+          if (darkSrc) darkSrc.media = '(min-width: 0px)';
+          if (lightSrc) lightSrc.media = '(max-width: 0px)';
+          if (darkSrc && img) img.src = darkSrc.getAttribute('srcset');
+        } else {
+          if (lightSrc) lightSrc.media = '(min-width: 0px)';
+          if (darkSrc) darkSrc.media = '(max-width: 0px)';
+          if (lightSrc && img) img.src = lightSrc.getAttribute('srcset');
+        }
+      });
+    }
+
+    function setViewport(mode) {
+      var frame = document.getElementById('gh-frame');
+      frame.className = 'gh-viewport-frame' + (mode === 'desktop' ? '' : ' viewport-' + mode);
+      var btnD = document.getElementById('btn-vp-desktop');
+      var btnT = document.getElementById('btn-vp-tablet');
+      var btnM = document.getElementById('btn-vp-mobile');
+      if (btnD) btnD.classList.toggle('active', mode === 'desktop');
+      if (btnT) btnT.classList.toggle('active', mode === 'tablet');
+      if (btnM) btnM.classList.toggle('active', mode === 'mobile');
+    }
+
+    // Auto-detect URL query params
+    window.addEventListener('DOMContentLoaded', function() {
+      var params = new URLSearchParams(window.location.search);
+      var theme = params.get('theme') || 'dark';
+      var viewport = params.get('viewport') || 'desktop';
+      setTheme(theme);
+      setViewport(viewport);
+    });
+  </script>
+</body>
+</html>

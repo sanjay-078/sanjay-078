@@ -1,0 +1,261 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="nexus-light-title nexus-light-desc">
+  <title id="nexus-light-title">Sanjay Systems — NEXUS-01 Flagship Intelligence Core (Light Edition)</title>
+  <desc id="nexus-light-desc">Research-grade AI engineering showcase for Sanjay S, Forward Deployed Engineer and Generative AI Engineer.</desc>
+  <defs>
+    <!-- Light Canvas Background Gradients -->
+    <linearGradient id="hero-light-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+
+    <radialGradient id="hero-light-ambient" cx="72%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.14"/>
+      <stop offset="40%" stop-color="#38BDF8" stop-opacity="0.06"/>
+      <stop offset="75%" stop-color="#F8FAFC" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="hero-light-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="25%" stop-color="#0EA5E9"/>
+      <stop offset="55%" stop-color="#38BDF8" stop-opacity="0.4"/>
+      <stop offset="85%" stop-color="#E2E8F0" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="hero-light-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+
+    <linearGradient id="hero-light-card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+
+    <linearGradient id="hero-light-cta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+
+    <!-- Gaussian Blur Filters -->
+    <filter id="hero-bloom-strong-light" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="hero-bloom-subtle-light" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Scientific Coordinate Grid (Subtle Light) -->
+    <pattern id="hero-light-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#CBD5E1" stroke-width="0.7" stroke-opacity="0.3"/>
+      <circle cx="0" cy="0" r="0.75" fill="#0284C7" fill-opacity="0.2"/>
+    </pattern>
+
+    <clipPath id="hero-light-clip">
+      <rect x="0" y="0" width="1200" height="460" rx="16"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes heroBootFade { 0% { opacity: 0; transform: translateY(6px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes heroOrbitCW { 100% { transform: rotate(360deg); } }
+    @keyframes heroOrbitCCW { 100% { transform: rotate(-360deg); } }
+    @keyframes heroPulseCoreLight { 0%, 100% { transform: scale(1); opacity: 0.95; } 50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 12px #0284C7); } }
+    @keyframes heroStreamWire { 0% { stroke-dashoffset: 48; } 100% { stroke-dashoffset: 0; } }
+    @keyframes heroScanLine { 0% { transform: translateY(-70px); opacity: 0; } 15% { opacity: 0.65; } 85% { opacity: 0.65; } 100% { transform: translateY(70px); opacity: 0; } }
+    @keyframes heroNodePing { 0%, 100% { r: 4.5; opacity: 0.75; } 50% { r: 6.5; opacity: 1; } }
+
+    .h-boot { animation: heroBootFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .h-core { animation: heroPulseCoreLight 4s ease-in-out infinite; transform-origin: 880px 230px; }
+    .h-orbit-1 { animation: heroOrbitCW 45s linear infinite; transform-origin: 880px 230px; }
+    .h-orbit-2 { animation: heroOrbitCCW 30s linear infinite; transform-origin: 880px 230px; }
+    .h-orbit-3 { animation: heroOrbitCW 18s linear infinite; transform-origin: 880px 230px; }
+    .h-stream { stroke-dasharray: 6 12; animation: heroStreamWire 2s linear infinite; }
+    .h-scanner { animation: heroScanLine 3.8s ease-in-out infinite; }
+    .h-ping { animation: heroNodePing 2.5s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, .h-boot, .h-core, .h-orbit-1, .h-orbit-2, .h-orbit-3, .h-stream, .h-scanner, .h-ping {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+
+  <g clip-path="url(#hero-light-clip)">
+    <!-- Canvas Fill & Coordinate Backdrop -->
+    <rect width="1200" height="460" fill="url(#hero-light-bg)"/>
+    <rect width="1200" height="460" fill="url(#hero-light-grid)"/>
+    <rect width="1200" height="460" fill="url(#hero-light-ambient)"/>
+
+    <!-- Subtle Registration Marks in 4 Outer Corners -->
+    <g stroke="#0284C7" stroke-width="1.2" opacity="0.5">
+      <path d="M 28 32 L 40 32 M 34 26 L 34 38"/>
+      <path d="M 1160 32 L 1172 32 M 1166 26 L 1166 38"/>
+      <path d="M 28 428 L 40 428 M 34 422 L 34 434"/>
+      <path d="M 1160 428 L 1172 428 M 1166 422 L 1166 434"/>
+    </g>
+
+    <!-- Hairline Outer Engineering Frame Lines -->
+    <line x1="48" y1="32" x2="1152" y2="32" stroke="#CBD5E1" stroke-width="0.75" stroke-opacity="0.6"/>
+    <line x1="48" y1="428" x2="1152" y2="428" stroke="#CBD5E1" stroke-width="0.75" stroke-opacity="0.6"/>
+
+    <!-- ======================================================== -->
+    <!-- LEFT PANE: RESEARCH-GRADE IDENTITY & PRODUCTION STATS    -->
+    <!-- ======================================================== -->
+    <g class="h-boot" transform="translate(68, 52)">
+
+      <!-- Editorial Kicker & Operational Status -->
+      <g transform="translate(0, 0)">
+        <rect width="256" height="28" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+        <circle cx="14" cy="14" r="4" fill="#059669"/>
+        <text x="26" y="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="1.2" fill="#0284C7">SANJAY SYSTEMS // APPLIED AI</text>
+        <line x1="198" y1="6" x2="198" y2="22" stroke="#CBD5E1" stroke-width="1"/>
+        <text x="206" y="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="600" letter-spacing="0.8" fill="#475569">ONLINE</text>
+      </g>
+
+      <!-- Principal Name Headline -->
+      <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" letter-spacing="-1.5" fill="#0F172A">
+        Sanjay S
+      </text>
+
+      <!-- Engineering Domain Subtitle -->
+      <text x="0" y="114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" letter-spacing="-0.3" fill="#0284C7">
+        Forward Deployed Engineer <tspan fill="#64748B" font-weight="400">·</tspan> Generative AI Engineer
+      </text>
+
+      <!-- Editorial Thesis & Systems Philosophy -->
+      <text x="0" y="150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#334155">
+        Engineering intelligent systems that survive enterprise reality.
+      </text>
+      <text x="0" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#64748B">
+        Edge telemetry pipelines, high-throughput extraction &amp; source-grounded LLMs.
+      </text>
+
+      <!-- Verified Production Metrics Grid (2x2 Matrix with Larger, High-Contrast Typography) -->
+      <g transform="translate(0, 204)">
+        <!-- Metric 01: FIREBLADE -->
+        <g transform="translate(0, 0)">
+          <rect width="220" height="52" rx="8" fill="url(#hero-light-card)" stroke="#E2E8F0" stroke-width="1.2"/>
+          <text x="14" y="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="1" fill="#0284C7">01 // FIREBLADE</text>
+          <text x="14" y="39" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="13" font-weight="600" fill="#0F172A">20 Active Phones <tspan fill="#64748B" font-size="11" font-weight="400">· Daily</tspan></text>
+        </g>
+
+        <!-- Metric 02: HYPERSPEED -->
+        <g transform="translate(232, 0)">
+          <rect width="220" height="52" rx="8" fill="url(#hero-light-card)" stroke="#E2E8F0" stroke-width="1.2"/>
+          <text x="14" y="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="1" fill="#4F46E5">02 // HYPERSPEED</text>
+          <text x="14" y="39" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="13" font-weight="600" fill="#0F172A">~200K Emails <tspan fill="#64748B" font-size="11" font-weight="400">· ~70K SKUs</tspan></text>
+        </g>
+
+        <!-- Metric 03: STRATOS -->
+        <g transform="translate(0, 60)">
+          <rect width="220" height="52" rx="8" fill="url(#hero-light-card)" stroke="#E2E8F0" stroke-width="1.2"/>
+          <text x="14" y="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="1" fill="#059669">03 // STRATOS</text>
+          <text x="14" y="39" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="13" font-weight="600" fill="#0F172A">69,070 Catalogue SKUs</text>
+        </g>
+
+        <!-- Metric 04: DECIBEL -->
+        <g transform="translate(232, 60)">
+          <rect width="220" height="52" rx="8" fill="url(#hero-light-card)" stroke="#E2E8F0" stroke-width="1.2"/>
+          <text x="14" y="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="1" fill="#D97706">04 // DECIBEL</text>
+          <text x="14" y="39" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="13" font-weight="600" fill="#0F172A">3 Depts <tspan fill="#64748B" font-size="11" font-weight="400">· 19 E2E Passing</tspan></text>
+        </g>
+      </g>
+
+      <!-- Action Anchor / Lab Trigger -->
+      <g transform="translate(0, 328)">
+        <rect width="230" height="40" rx="8" fill="url(#hero-light-cta)"/>
+        <text x="18" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#FFFFFF">
+          NEXUS-01 INTERACTIVE LAB ↗
+        </text>
+        <text x="254" y="25" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#475569">
+          $ <tspan fill="#0284C7">nexus</tspan> --verify-systems --all
+        </text>
+      </g>
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- RIGHT PANE: SCIENTIFIC NEXUS INTELLIGENCE CORE GRAPH     -->
+    <!-- ======================================================== -->
+    <g transform="translate(880, 230)">
+
+      <!-- Outer Harmonic Telemetry Rings -->
+      <circle cx="0" cy="0" r="172" fill="none" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="2 6"/>
+      <circle cx="0" cy="0" r="150" fill="none" stroke="#0284C7" stroke-width="1" stroke-dasharray="8 24" class="h-orbit-1" opacity="0.6"/>
+      <circle cx="0" cy="0" r="122" fill="none" stroke="#0EA5E9" stroke-width="1.2" stroke-dasharray="4 16" class="h-orbit-2" opacity="0.7"/>
+      <circle cx="0" cy="0" r="92" fill="none" stroke="#0D9488" stroke-width="0.8" stroke-dasharray="6 8" class="h-orbit-3" opacity="0.8"/>
+
+      <!-- Cardinal Coordinate Markers & Sensor Crosshairs -->
+      <g stroke="#0284C7" stroke-width="1.2" opacity="0.6">
+        <line x1="-180" y1="0" x2="-164" y2="0"/>
+        <line x1="164" y1="0" x2="180" y2="0"/>
+        <line x1="0" y1="-180" x2="0" y2="-164"/>
+        <line x1="0" y1="164" x2="0" y2="180"/>
+      </g>
+
+      <!-- Diagonal Quadrant Crosshairs -->
+      <g stroke="#94A3B8" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.35">
+        <line x1="-106" y1="-106" x2="106" y2="106"/>
+        <line x1="-106" y1="106" x2="106" y2="-106"/>
+      </g>
+
+      <!-- Synaptic Tensor Vectors (Conduits & Animated Ingestion Streams) -->
+      <g stroke="url(#hero-light-cyan)" stroke-width="1.2" opacity="0.6" class="h-stream">
+        <path d="M -115 -75 Q -50 -40 0 0"/>
+        <path d="M 115 -75 Q 50 -40 0 0"/>
+        <path d="M -130 50 Q -60 25 0 0"/>
+        <path d="M 130 50 Q 60 25 0 0"/>
+        <path d="M 0 -135 L 0 0"/>
+        <path d="M 0 135 L 0 0"/>
+      </g>
+
+      <!-- Peripheral Nodes with Authentic Architectural Labels -->
+      <g>
+        <!-- Node 1: Mobile Telemetry -->
+        <circle cx="-115" cy="-75" r="5" fill="#0284C7" class="h-ping"/>
+        <text x="-126" y="-79" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" letter-spacing="0.5" text-anchor="end" fill="#1E293B">EDGE TELEMETRY</text>
+
+        <!-- Node 2: Document OCR -->
+        <circle cx="115" cy="-75" r="5" fill="#4F46E5" class="h-ping"/>
+        <text x="126" y="-79" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" letter-spacing="0.5" text-anchor="start" fill="#1E293B">EXTRACTION AI</text>
+
+        <!-- Node 3: Grounded RAG -->
+        <circle cx="-130" cy="50" r="5" fill="#059669" class="h-ping"/>
+        <text x="-141" y="54" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" letter-spacing="0.5" text-anchor="end" fill="#1E293B">GROUNDED RAG</text>
+
+        <!-- Node 4: State Machine -->
+        <circle cx="130" cy="50" r="5" fill="#D97706" class="h-ping"/>
+        <text x="141" y="54" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="700" letter-spacing="0.5" text-anchor="start" fill="#1E293B">STATE DISPATCH</text>
+
+        <!-- Node 5: North Tensor Gateway -->
+        <circle cx="0" cy="-135" r="4.5" fill="#0284C7"/>
+        <text x="0" y="-146" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#475569">LATENT MANIFOLD</text>
+
+        <!-- Node 6: South Ingestion Stream -->
+        <circle cx="0" cy="135" r="4.5" fill="#0D9488"/>
+        <text x="0" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#475569">E2E MATRIX</text>
+      </g>
+
+      <!-- Laser Scanner Beam Sweeping Core -->
+      <line x1="-70" y1="0" x2="70" y2="0" stroke="#0284C7" stroke-width="1.8" opacity="0.6" class="h-scanner"/>
+
+      <!-- CENTRAL NEXUS SINGULARITY (Layered Energy Core) -->
+      <g class="h-core">
+        <circle cx="0" cy="0" r="48" fill="url(#hero-light-core)" filter="url(#hero-bloom-strong-light)"/>
+        <circle cx="0" cy="0" r="34" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.8"/>
+        <!-- Inner Geometric Precision -->
+        <polygon points="0,-22 19,-11 19,11 0,22 -19,11 -19,-11" fill="none" stroke="#0D9488" stroke-width="1.2" opacity="0.8"/>
+        <polygon points="0,-14 12,-7 12,7 0,14 -12,7 -12,-7" fill="none" stroke="#0284C7" stroke-width="0.8" opacity="0.9"/>
+        <circle cx="0" cy="0" r="5" fill="#0284C7"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Exterior Architectural Chassis Border -->
+  <rect x="0.5" y="0.5" width="1199" height="459" rx="15.5" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+</svg>
